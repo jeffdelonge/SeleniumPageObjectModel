@@ -1,7 +1,7 @@
-package com.test;
+package test.java;
 
-import com.core.BaseTest;
-import com.pageobject.LoginPage;
+import main.java.BaseTest;
+import main.java.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
