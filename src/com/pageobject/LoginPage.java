@@ -53,17 +53,25 @@ public class LoginPage {
     }
 
     public void setUsername(String username) {
-        this.usernameField.sendKeys(username);
+        usernameField.sendKeys(username);
     }
 
     public void setPassword(String password) {
-        this.passwordField.sendKeys(password);
+        passwordField.sendKeys(password);
     }
 
     public void logIn(String username, String password) {
         setUsername(username);
         setPassword(password);
         submitButton.click();
+    }
+
+    public boolean isTheSuccessBannerPresent() {
+        return loginSuccessBanner.isDisplayed();
+    }
+
+    public boolean isTheFailureBannerPresent() {
+        return loginFailureBanner.isDisplayed();
     }
 
     public LoginPage() {

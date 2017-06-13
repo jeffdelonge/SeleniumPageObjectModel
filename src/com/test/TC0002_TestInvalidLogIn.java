@@ -16,6 +16,6 @@ public class TC0002_TestInvalidLogIn extends BaseTest {
         LoginPage pageToTest = PageFactory.initElements(webDriver, LoginPage.class);
 
         pageToTest.logIn("badusername", "badpassword");
-        Assert.assertTrue(pageToTest.getLoginFailureBanner().isDisplayed());
+        Assert.assertTrue(pageToTest.isTheFailureBannerPresent());
     }
 }

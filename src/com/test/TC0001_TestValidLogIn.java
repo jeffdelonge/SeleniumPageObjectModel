@@ -16,6 +16,6 @@ public class TC0001_TestValidLogIn extends BaseTest {
         LoginPage pageToTest = PageFactory.initElements(webDriver, LoginPage.class);
 
         pageToTest.logIn("tomsmith", "SuperSecretPassword!");
-        Assert.assertTrue(pageToTest.getLoginSuccessBanner().isDisplayed());
+        Assert.assertTrue(pageToTest.isTheSuccessBannerPresent());
     }
 }
