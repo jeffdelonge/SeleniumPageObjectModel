@@ -66,14 +66,6 @@ public class LoginPage {
         submitButton.click();
     }
 
-    public void successfulLogIn() {
-        logIn("tomsmith", "SuperSecretPassword!");
-    }
-
-    public void unsuccessfulLogIn() {
-        logIn("badusername", "badpassword");
-    }
-
     public LoginPage() {
 
     }
