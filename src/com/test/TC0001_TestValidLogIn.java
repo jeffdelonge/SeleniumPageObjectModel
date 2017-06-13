@@ -2,6 +2,7 @@ package com.test;
 
 import com.core.BaseTest;
 import com.pageobject.LoginPage;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,7 +18,6 @@ public class TC0001_TestValidLogIn extends BaseTest {
         System.out.println(pageToTest.getSubmitButton().getText());
         pageToTest.setUsername("tomsmith");
         pageToTest.setPassword("SuperSecretPassword!");
-        pageToTest.logIn();
-
+        Assert.assertTrue(pageToTest.logInWithSuccessConfirmation());
     }
 }
