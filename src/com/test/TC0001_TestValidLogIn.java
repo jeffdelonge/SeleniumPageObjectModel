@@ -2,8 +2,8 @@ package com.test;
 
 import com.core.BaseTest;
 import com.pageobject.LoginPage;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -15,9 +15,15 @@ public class TC0001_TestValidLogIn extends BaseTest {
     public void testValidLogIn() {
         LoginPage pageToTest = PageFactory.initElements(webDriver, LoginPage.class);
 
-        System.out.println(pageToTest.getSubmitButton().getText());
-        pageToTest.setUsername("tomsmith");
-        pageToTest.setPassword("SuperSecretPassword!");
-        Assert.assertTrue(pageToTest.logInWithSuccessConfirmation());
+        pageToTest.successfulLogIn();
+        Assert.assertTrue(pageToTest.getLoginSuccessBanner().isDisplayed());
+    }
+
+    @Test
+    public void testInvalidLogIn() {
+        LoginPage pageToTest = PageFactory.initElements(webDriver, LoginPage.class);
+
+        pageToTest.unsuccessfulLogIn();
+        Assert.assertTrue(pageToTest.getLoginFailureBanner().isDisplayed());
     }
 }

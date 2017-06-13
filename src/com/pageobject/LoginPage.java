@@ -22,6 +22,9 @@ public class LoginPage {
     @FindBy(xpath ="//*[@id=\"flash\"]")
     private WebElement loginSuccessBanner;
 
+    @FindBy(xpath = "//*[@id=\"flash\"]")
+    private WebElement loginFailureBanner;
+
     @FindBy(linkText ="Logout")
     private WebElement logOutButton;
 
@@ -41,6 +44,10 @@ public class LoginPage {
         return loginSuccessBanner;
     }
 
+    public WebElement getLoginFailureBanner() {
+        return loginFailureBanner;
+    }
+
     public WebElement getLogOutButton() {
         return logOutButton;
     }
@@ -53,13 +60,18 @@ public class LoginPage {
         this.passwordField.sendKeys(password);
     }
 
-    public void logIn() {
+    public void logIn(String username, String password) {
+        setUsername(username);
+        setPassword(password);
         submitButton.click();
     }
 
-    public boolean logInWithSuccessConfirmation() {
-        submitButton.click();
-        return logOutButton.isDisplayed();
+    public void successfulLogIn() {
+        logIn("tomsmith", "SuperSecretPassword!");
+    }
+
+    public void unsuccessfulLogIn() {
+        logIn("badusername", "badpassword");
     }
 
     public LoginPage() {
