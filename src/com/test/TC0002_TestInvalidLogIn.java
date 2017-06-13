@@ -7,15 +7,15 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Created by jeff206462799 on 6/12/17.
+ * Created by jeff206462799 on 6/13/17.
  */
-public class TC0001_TestValidLogIn extends BaseTest {
+public class TC0002_TestInvalidLogIn extends BaseTest {
 
     @Test
-    public void testValidLogIn() {
+    public void testInvalidLogIn() {
         LoginPage pageToTest = PageFactory.initElements(webDriver, LoginPage.class);
 
-        pageToTest.logIn("tomsmith", "SuperSecretPassword!");
-        Assert.assertTrue(pageToTest.isTheSuccessBannerPresent());
+        pageToTest.logIn("badusername", "badpassword");
+        Assert.assertTrue(pageToTest.isTheFailureBannerPresent());
     }
 }

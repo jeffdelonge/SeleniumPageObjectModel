@@ -22,6 +22,9 @@ public class LoginPage {
     @FindBy(xpath ="//*[@id=\"flash\"]")
     private WebElement loginSuccessBanner;
 
+    @FindBy(xpath = "//*[@id=\"flash\"]")
+    private WebElement loginFailureBanner;
+
     @FindBy(linkText ="Logout")
     private WebElement logOutButton;
 
@@ -41,25 +44,34 @@ public class LoginPage {
         return loginSuccessBanner;
     }
 
+    public WebElement getLoginFailureBanner() {
+        return loginFailureBanner;
+    }
+
     public WebElement getLogOutButton() {
         return logOutButton;
     }
 
     public void setUsername(String username) {
-        this.usernameField.sendKeys(username);
+        usernameField.sendKeys(username);
     }
 
     public void setPassword(String password) {
-        this.passwordField.sendKeys(password);
+        passwordField.sendKeys(password);
     }
 
-    public void logIn() {
+    public void logIn(String username, String password) {
+        setUsername(username);
+        setPassword(password);
         submitButton.click();
     }
 
-    public boolean logInWithSuccessConfirmation() {
-        submitButton.click();
-        return logOutButton.isDisplayed();
+    public boolean isTheSuccessBannerPresent() {
+        return loginSuccessBanner.isDisplayed();
+    }
+
+    public boolean isTheFailureBannerPresent() {
+        return loginFailureBanner.isDisplayed();
     }
 
     public LoginPage() {
