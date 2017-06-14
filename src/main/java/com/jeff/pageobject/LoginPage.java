@@ -1,4 +1,4 @@
-package main.java;
+package main.java.com.jeff.pageobject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
