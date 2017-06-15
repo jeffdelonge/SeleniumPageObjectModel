@@ -1,10 +1,10 @@
-package com.test;
+package test.java.com.jeff.tests;
 
-import com.core.BaseTest;
-import com.pageobject.LoginPage;
+import main.java.com.jeff.core.BaseTest;
+import main.java.com.jeff.pageobject.LoginPage;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by jeff206462799 on 6/13/17.
@@ -17,5 +17,6 @@ public class TC0002_TestInvalidLogIn extends BaseTest {
 
         pageToTest.logIn("badusername", "badpassword");
         Assert.assertTrue(pageToTest.isTheFailureBannerPresent());
+        Assert.assertEquals(pageToTest.getLoginFailureBanner().getText(), "Your username is invalid!\n" + "×");
     }
 }
